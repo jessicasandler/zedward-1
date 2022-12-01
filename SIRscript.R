@@ -63,12 +63,13 @@ SIR_reformat2 <- SIR_reformat |>
 #plot interactive graph
 graph <- SIR_reformat2 |> #use reformatted data
   ggplot(aes(x= time, y = value, color = Variables)) + #plot lines w/ diff colors
-  geom_line(size = 2) + #change size of line
+  geom_line(size = 1) + #change size of line
   labs(title = "Zombie Apocalypse SIR Model", #add title
        y = "Number Of People", #add y-axis name
        x = "Time (days)") + #add x-axis name
   theme(legend.background = element_blank(), #add background to legend
-        plot.title = element_text(hjust = 0.5)) #move title to center
+        plot.title = element_text(hjust = 0.5),#move title to center
+        aspect.ratio = 0.4) 
 graph + transition_reveal(time) #plot interactive graph
 
 #Reference:
